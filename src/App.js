@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Formulario from "./components/Formularios";
+import Cita from "./components/Cita";
 
 function App() {
   const [citas, guardarCitas] = useState([]);
@@ -20,7 +21,15 @@ function App() {
           crearCita={crearCita}
           />
         </div>
-        <div className="one-half column"></div>
+        <div className="one-half column">
+          <h2>Administra tus citas</h2>
+          {citas.map(cita =>(
+            <Cita
+              key={cita.id}
+              cita={cita}
+            />
+          ))}
+        </div>
       </div>
     </Fragment>
   );
